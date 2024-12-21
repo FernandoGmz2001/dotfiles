@@ -16,8 +16,8 @@ sudo apt install stow
 Clone my dotenv files repository
 
 ```
-$ git clone git@github.com:FernandoGmz2001/dotfiles.git
-$ cd dotfiles 
+git clone git@github.com:FernandoGmz2001/dotfiles.git
+cd dotfiles 
 ```
 
 then use GNU stow to create symbolic links 
