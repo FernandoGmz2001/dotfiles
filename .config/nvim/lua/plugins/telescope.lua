@@ -51,7 +51,11 @@ return {
   opts = {
     pickers = {
       find_files = {
-        theme = "ivy",
+        -- theme = "ivy",
+        sorting_strategy = "ascending",
+        layout_config = {
+          prompt_position = "top",
+        },
         winblend = 15,
         mappings = {
           i = {
@@ -64,8 +68,12 @@ return {
         },
       },
       live_grep = {
-        theme = "ivy",
+        -- theme = "ivy",
         winblend = 15,
+        sorting_strategy = "ascending",
+        layout_config = {
+          prompt_position = "top",
+        },
       },
       file_browser = {
         winblend = 15,
