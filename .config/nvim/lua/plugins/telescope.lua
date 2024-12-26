@@ -10,6 +10,10 @@ return {
       build = "make",
     },
   },
+  config = function()
+    vim.keymap.set('n', '<space>ts', require('telescope').extensions.toggletasks.spawn,
+      { desc = 'toggletasks: spawn' })
+  end,
   keys = {
     { ";f", "<cmd>Telescope find_files<cr>", desc = "Find files" },
     { ";r", "<cmd>Telescope live_grep<cr>",  desc = "Live grep" },
