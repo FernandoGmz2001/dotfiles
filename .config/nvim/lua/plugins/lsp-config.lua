@@ -27,13 +27,13 @@ return {
         ensure_installed = { "lua_ls", "cssls", "html", "ts_ls", "eslint", "tailwindcss" },
       })
       lspconfig.volar.setup({
-        on_attach = require('lsp-format').on_attach,
-        filetypes = { "vue" },
-        init_options = {
-          typescript = {
-            serverPath = "/home/ferdev/.nvm/versions/node/v22.12.0/bin/tsserver",
-          },
-        },
+        -- on_attach = require('lsp-format').on_attach,
+        -- filetypes = { "vue" },
+        -- init_options = {
+        --   typescript = {
+        --     serverPath = "/home/ferdev/.nvm/versions/node/v22.12.0/bin/tsserver",
+        --   },
+        -- },
       })
       lspconfig.tailwindcss.setup({})
       lspconfig.lua_ls.setup({ on_attach = require('lsp-format').on_attach })
@@ -47,7 +47,7 @@ return {
           plugins = {
             {
               name = "@vue/typescript-plugin",
-              location = "/home/ferdev/.nvm/versions/node/v22.12.0/lib/node_modules/@vue/typescript-plugin",
+              location = "/home/fer/.nvm/versions/node/v22.12.0/lib/node_modules/@vue/typescript-plugin",
               languages = { "vue", "typescript", "javascript" },
             },
           },

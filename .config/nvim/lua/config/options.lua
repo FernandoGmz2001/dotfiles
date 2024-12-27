@@ -60,7 +60,18 @@ vim.opt.splitbelow = true     -- Put new windows below current
 vim.opt.splitright = true     -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.o.hlsearch = false
-vim.opt.winblend = 15
-vim.opt.pumblend = 14
-vim.cmd('highlight NormalFloat guibg=#1f2335') -- Fondo para ventanas flotantes
-vim.cmd('highlight Pmenu guibg=#1f2335')
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = '', -- or other icon of your choice here, this is just what my config has:
+      [vim.diagnostic.severity.WARN] = '',
+      [vim.diagnostic.severity.INFO] = '',
+      [vim.diagnostic.severity.HINT] = '󰌵',
+    },
+  },
+})
+-- vim.opt.winblend = 15
+-- vim.opt.pumblend = 14
+-- vim.cmd('highlight NormalFloat guibg=#1f2335') -- Fondo para ventanas flotantes
+-- vim.cmd('highlight Pmenu guibg=#1f2335')

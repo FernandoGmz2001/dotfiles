@@ -10,10 +10,6 @@ return {
       build = "make",
     },
   },
-  config = function()
-    vim.keymap.set('n', '<space>ts', require('telescope').extensions.toggletasks.spawn,
-      { desc = 'toggletasks: spawn' })
-  end,
   keys = {
     { ";f", "<cmd>Telescope find_files<cr>", desc = "Find files" },
     { ";r", "<cmd>Telescope live_grep<cr>",  desc = "Live grep" },
@@ -27,7 +23,7 @@ return {
           return vim.fn.expand("%:p:h")
         end
         telescope.extensions.file_browser.file_browser({
-          winblend = 15,
+          -- winblend = 15,
           path = "%:p:h",
           cwd = telescope_buffer_dir(),
           respect_gitignore = false,
@@ -60,7 +56,7 @@ return {
         layout_config = {
           prompt_position = "top",
         },
-        winblend = 15,
+        -- winblend = 15,
         mappings = {
           i = {
             ["<esc>"] = require('telescope.actions').close,
@@ -73,14 +69,14 @@ return {
       },
       live_grep = {
         -- theme = "ivy",
-        winblend = 15,
+        -- winblend = 15,
         sorting_strategy = "ascending",
         layout_config = {
           prompt_position = "top",
         },
       },
       file_browser = {
-        winblend = 15,
+        -- winblend = 15,
         --    mappings = {
         -- 	-- your custom insert mode mappings
         -- 	["n"] = {
