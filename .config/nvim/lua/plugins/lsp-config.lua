@@ -34,20 +34,19 @@ return {
       lspconfig.html.setup({ on_attach = require('lsp-format').on_attach, capabilities = capabilities })
       lspconfig.eslint.setup({ on_attach = require('lsp-format').on_attach, capabilities = capabilities })
       --
-      lspconfig.ts_ls.setup({
-        capabilities = capabilities,
-        on_attach = require('lsp-format').on_attach,
-        init_options = {
-          plugins = {
-            {
-              name = "@vue/typescript-plugin",
-              location = "/home/fer/.nvm/versions/node/v22.12.0/lib/node_modules/@vue/typescript-plugin",
-              languages = { "vue", "typescript", "javascript" },
-            },
-          },
-        },
-        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-      })
+      -- lspconfig.ts_ls.setup({
+      --   on_attach = require('lsp-format').on_attach,
+      --   init_options = {
+      --     plugins = {
+      --       {
+      --         name = "@vue/typescript-plugin",
+      --         location = "/home/fer/.nvm/versions/node/v22.12.0/lib/node_modules/@vue/typescript-plugin",
+      --         languages = { "vue", "typescript", "javascript" },
+      --       },
+      --     },
+      --   },
+      --   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+      -- })
     end,
     keys = {
       { "K",          vim.lsp.buf.hover,       desc = "Lsp hover" },
@@ -83,6 +82,6 @@ return {
       local capabilities = require('blink.cmp').get_lsp_capabilities()
       local lspconfig = require('lspconfig')
 
-      lspconfig['lua-ls'].setup({ capabilities = capabilities })
+      -- lspconfig['lua-ls'].setup({ capabilities = capabilities })
     end
   } }

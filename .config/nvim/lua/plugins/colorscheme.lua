@@ -12,7 +12,7 @@ return {
     "olimorris/onedarkpro.nvim",
     priority = 1000, -- Ensure it loads first
     config = function()
-      vim.cmd("colorscheme onedark")
+      -- vim.cmd("colorscheme onedark")
       -- vim.cmd("colorscheme onedark_vivid")
     end
   },
@@ -33,11 +33,11 @@ return {
     name = "catppuccin",
     lazy = false,
     -- priority = 1000,
-    -- config = function()
-    --   require("catppuccin").setup({
-    --     transparent_background = true,
-    --   })
-    --   vim.cmd("colorscheme catppuccin")
-    -- end
+    config = function()
+      --   require("catppuccin").setup({
+      --     transparent_background = true,
+      --   })
+      vim.cmd("colorscheme catppuccin")
+    end
   },
 }
