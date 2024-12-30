@@ -2,10 +2,12 @@ return {
   {
     "hrsh7th/cmp-nvim-lsp",
     lazy = false,
+    enabled = false,
   },
   {
     "L3MON4D3/LuaSnip",
     lazy = false,
+    enabled = false,
     dependencies = {
       "saadparwaiz1/cmp_luasnip",
       "rafamadriz/friendly-snippets",
@@ -15,6 +17,7 @@ return {
   {
     "hrsh7th/nvim-cmp",
     lazy = false,
+    enabled = false,
     config = function()
       local cmp = require("cmp")
       local cmp_autopairs = require("nvim-autopairs.completion.cmp")

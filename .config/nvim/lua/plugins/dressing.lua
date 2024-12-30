@@ -1,6 +1,7 @@
 return {
   'stevearc/dressing.nvim',
-  lazy = true,
+  lazy = false,
+  enabled = true,
   opts = {
     input = { border = "rounded" }
   },

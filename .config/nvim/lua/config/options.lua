@@ -61,7 +61,7 @@ vim.opt.splitright = true     -- Put new windows right of current
 vim.opt.splitkeep = "cursor"
 vim.o.hlsearch = false
 vim.diagnostic.config({
-  virtual_text = false,
+  -- virtual_text = false, -- Disable error lens
   signs = {
     text = {
       [vim.diagnostic.severity.ERROR] = '', -- or other icon of your choice here, this is just what my config has:

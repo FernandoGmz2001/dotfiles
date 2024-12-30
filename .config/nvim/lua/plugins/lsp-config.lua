@@ -20,28 +20,22 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     config = function()
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
       local lspconfig = require("lspconfig")
       local lsp_zero = require("lsp-zero")
       lsp_zero.extend_lspconfig() -- Asegurarse de llamar a extend_lspconfig aquí
       require("mason-lspconfig").setup({
         ensure_installed = { "lua_ls", "cssls", "html", "ts_ls", "eslint", "tailwindcss" },
       })
-      lspconfig.volar.setup({
-        -- on_attach = require('lsp-format').on_attach,
-        -- filetypes = { "vue" },
-        -- init_options = {
-        --   typescript = {
-        --     serverPath = "/home/ferdev/.nvm/versions/node/v22.12.0/bin/tsserver",
-        --   },
-        -- },
-      })
-      lspconfig.tailwindcss.setup({})
-      lspconfig.lua_ls.setup({ on_attach = require('lsp-format').on_attach })
-      lspconfig.cssls.setup({ on_attach = require('lsp-format').on_attach })
-      lspconfig.html.setup({ on_attach = require('lsp-format').on_attach })
-      lspconfig.eslint.setup({ on_attach = require('lsp-format').on_attach })
+      lspconfig.volar.setup({ capabilities = capabilities })
+      lspconfig.tailwindcss.setup({ capabilities = capabilities })
+      lspconfig.lua_ls.setup({ on_attach = require('lsp-format').on_attach, capabilities = capabilities })
+      lspconfig.cssls.setup({ on_attach = require('lsp-format').on_attach, capabilities = capabilities })
+      lspconfig.html.setup({ on_attach = require('lsp-format').on_attach, capabilities = capabilities })
+      lspconfig.eslint.setup({ on_attach = require('lsp-format').on_attach, capabilities = capabilities })
       --
       lspconfig.ts_ls.setup({
+        capabilities = capabilities,
         on_attach = require('lsp-format').on_attach,
         init_options = {
           plugins = {
@@ -74,5 +68,21 @@ return {
       vim.diagnostic.open_float()
     end, { noremap = true, silent = true })
   },
-  { "neovim/nvim-lspconfig", lazy = false }
-}
+  {
+    'neovim/nvim-lspconfig',
+    dependencies = { 'saghen/blink.cmp' },
+
+    -- example using `opts` for defining servers
+    opts = {
+      servers = {
+        lua_ls = {}
+      }
+    },
+    -- example calling setup directly for each LSP
+    config = function()
+      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      local lspconfig = require('lspconfig')
+
+      lspconfig['lua-ls'].setup({ capabilities = capabilities })
+    end
+  } }
