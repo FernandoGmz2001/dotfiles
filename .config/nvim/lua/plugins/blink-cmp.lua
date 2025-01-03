@@ -26,7 +26,13 @@ return {
       use_nvim_cmp_as_default = true,
       nerd_font_variant = 'mono'
     },
-
+    completion = {
+      menu = {
+        auto_show = function()
+          return vim.bo.buftype ~= "prompt" and vim.b.completion ~= false and vim.bo.filetype ~= "TelescopePrompt"
+        end,
+      },
+    },
     sources = {
       default = { 'lsp', 'path', 'snippets', 'buffer' },
     },

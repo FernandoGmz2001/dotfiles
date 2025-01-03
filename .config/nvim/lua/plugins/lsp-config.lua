@@ -34,20 +34,21 @@ return {
       lspconfig.html.setup({ on_attach = require('lsp-format').on_attach, capabilities = capabilities })
       lspconfig.eslint.setup({ on_attach = require('lsp-format').on_attach, capabilities = capabilities })
       --
-      -- lspconfig.ts_ls.setup({
-      --   on_attach = require('lsp-format').on_attach,
-      --   init_options = {
-      --     plugins = {
-      --       {
-      --         name = "@vue/typescript-plugin",
-      --         location = "/home/fer/.nvm/versions/node/v22.12.0/lib/node_modules/@vue/typescript-plugin",
-      --         languages = { "vue", "typescript", "javascript" },
-      --       },
-      --     },
-      --   },
-      --   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
-      -- })
-    end,
+      lspconfig.ts_ls.setup({
+        --volar = {},
+        init_options = {
+          plugins = {
+            {
+              name = "@vue/typescript-plugin",
+              location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+              languages = { "vue", "typescript", "javascript" },
+            },
+          },
+        },
+        filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue" },
+      })
+    end
+    ,
     keys = {
       { "K",          vim.lsp.buf.hover,       desc = "Lsp hover" },
       { "<leader>ca", vim.lsp.buf.code_action, desc = "Code action" },
@@ -68,20 +69,5 @@ return {
     end, { noremap = true, silent = true })
   },
   {
-    'neovim/nvim-lspconfig',
-    dependencies = { 'saghen/blink.cmp' },
-
-    -- example using `opts` for defining servers
-    opts = {
-      servers = {
-        lua_ls = {}
-      }
-    },
-    -- example calling setup directly for each LSP
-    config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
-      local lspconfig = require('lspconfig')
-
-      -- lspconfig['lua-ls'].setup({ capabilities = capabilities })
-    end
-  } }
+    'neovim/nvim-lspconfig' }
+}
