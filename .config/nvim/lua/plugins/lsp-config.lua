@@ -20,7 +20,7 @@ return {
     "williamboman/mason-lspconfig.nvim",
     lazy = false,
     config = function()
-      local capabilities = require('blink.cmp').get_lsp_capabilities()
+      -- local capabilities = require('blink.cmp').get_lsp_capabilities()
       local lspconfig = require("lspconfig")
       local lsp_zero = require("lsp-zero")
       lsp_zero.extend_lspconfig() -- Asegurarse de llamar a extend_lspconfig aquí
@@ -35,12 +35,12 @@ return {
       lspconfig.eslint.setup({ on_attach = require('lsp-format').on_attach, capabilities = capabilities })
       --
       lspconfig.ts_ls.setup({
-        --volar = {},
+        on_attach = require('lsp-format').on_attach,
         init_options = {
           plugins = {
             {
               name = "@vue/typescript-plugin",
-              location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
+              location = "/home/fer/.nvm/versions/node/v22.12.0/lib/node_modules/@vue/typescript-plugin",
               languages = { "vue", "typescript", "javascript" },
             },
           },
@@ -68,6 +68,5 @@ return {
       vim.diagnostic.open_float()
     end, { noremap = true, silent = true })
   },
-  {
-    'neovim/nvim-lspconfig' }
-}
+  {'neovim/nvim-lspconfig' },
+  } 
